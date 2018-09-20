@@ -87,9 +87,6 @@ window.addEventListener('load', function() {
     });
     
     function handleIndexChange (index) {
-        if (selectedPage !== page) {
-            handlePageChange(selectedPage);
-        }
         let items = listDOM.children;
         items[selectedIndex].classList.remove('selected');
         if (index < 0) {
@@ -125,9 +122,15 @@ window.addEventListener('load', function() {
     }
     
     mainPreBtn.addEventListener('click', function (e) {
+        if (selectedPage !== page) {
+            handlePageChange(selectedPage);
+        }
         handleIndexChange(selectedIndex - 1);
     });
     mainNextBtn.addEventListener('click', function (e) {
+        if (selectedPage !== page) {
+            handlePageChange(selectedPage);
+        }
         handleIndexChange(selectedIndex + 1);
     });
 });
